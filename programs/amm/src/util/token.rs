@@ -28,10 +28,10 @@ const MINT_WHITELIST: [&'static str; 4] = [
 pub fn invoke_memo_instruction<'info>(
     memo_msg: &[u8],
     memo_program: AccountInfo<'info>,
-) -> solana_program::entrypoint::ProgramResult {
+) -> anchor_lang::solana_program::entrypoint::ProgramResult {
     let ix = spl_memo::build_memo(memo_msg, &Vec::new());
     let accounts = vec![memo_program];
-    solana_program::program::invoke(&ix, &accounts[..])
+    anchor_lang::solana_program::program::invoke(&ix, &accounts[..])
 }
 
 pub fn transfer_from_user_to_pool_vault<'info>(
